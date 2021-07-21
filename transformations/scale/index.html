@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transformacion Traslado</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        border: 1px solid red;
+      }
+      .container:hover .cuadrado {
+        /* transform: scale(0 = 0%, 1 = 100%); */
+        /* transform: scale(1.5); */
+        /* transform: scale(0.5); */
+        /* transform: scale(x, y); */
+        transform: scale(2, 0.5);
+      }
+      .cuadrado {
+        height: 200px;
+        width: 200px;
+        background-color: teal;
+        margin: 20px;
+        transition: 300ms;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cuadrado">hola mundo</div>
+    </div>
+  </body>
+</html>

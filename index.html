@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animaciones</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .container {
+        border: 1px solid red;
+        width: 100%;
+      }
+      .container:hover .cuadrado {
+        /* Default */
+        /* animation-play-state: running; */
+        animation-play-state: paused;
+      }
+      .cuadrado {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        width: 200px;
+        background-color: teal;
+        margin: 20px;
+        /* transition: 300ms; */
+        /* Propiedades obligatorias */
+        animation-name: cuadrado;
+        animation-duration: 1s;
+        /* Propiedades opcionales */
+        animation-delay: 2s;
+        /* animation-iteration-count: 3; */
+        animation-iteration-count: infinite;
+        /* animation-direction: reverse; */
+        animation-direction: alternate;
+        /* toma la ultima propiedad: */
+        /* animation-fill-mode: forwards; */
+        position: relative;
+        /* PROPIEDAD DE ACELERACION */
+        /* animation-timing-function: ease; */
+        /* animation-timing-function: ease-in; */
+        /* animation-timing-function: ease-out; */
+        /* animation-timing-function: ease-in-out; */
+        /* animation-timing-function: linear; */
+        /* Frames | cuadros  | saltos*/
+        /* animation-timing-function: steps(5); */
+        /* animation-timing-function: steps(60); */
+        /* Linear: */
+        /* animation-timing-function: cubic-bezier(1, 1, 1, 1); */
+        /* animation-timing-function: cubic-bezier(1, -1, 1, 1); */
+        /* animation-timing-function: cubic-bezier(0.11, 0.67, 0.83, 0.67); */
+        animation-timing-function: cubic-bezier(0.57, -0.26, 0.38, 1.38);
+      }
+      /* Configuracion de la animacion */
+      @keyframes cuadrado {
+        /* Estado Inicial */
+        0% {
+          /* opacity: 1; */
+          left: 0;
+        }
+        /* Estado Final */
+        100% {
+          /* opacity: 0; */
+          left: calc(100% - 240px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cuadrado">hola mundo</div>
+    </div>
+  </body>
+</html>

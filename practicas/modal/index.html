@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Animaciones de entrada y salida</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+            }
+
+            .modal {
+                border-radius: 8px;
+                width: 500px;
+                background-color: white;
+                /* animation: animationIn 0.8s; */
+                padding: 2em;
+            }
+            .overlay {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.8);
+                position: fixed;
+                right: 0;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                transition: 1.1s ease-in;
+                opacity: 0;
+                visibility: hidden;
+            }
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .modal-buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .btn {
+                cursor: pointer;
+                margin: 2px;
+                border-radius: 4px;
+                padding: 0.3em;
+                border: none;
+            }
+            .btn.success {
+                background: green;
+                color: white;
+            }
+            .btn.danger {
+                background: red;
+                color: white;
+            }
+
+            @keyframes animationIn {
+                0% {
+                    transform: translateY(-3000px);
+                }
+                60% {
+                    transform: translateY(25px);
+                }
+                75% {
+                    transform: translateY(-10px);
+                }
+                90% {
+                    transform: translateY(5px);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+            @keyframes animationOut {
+                0% {
+                    transform: translateY(0);
+                }
+                10% {
+                    transform: translateY(5px);
+                }
+                25% {
+                    transform: translateY(-10px);
+                }
+
+                40% {
+                    transform: translateY(25px);
+                }
+                100% {
+                    transform: translateY(-3000px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <button class="btn success" id="open-modal">Abrir modal</button>
+        <!-- <img
+      src="https://static.platzi.com/media/files/platzi_1994b84f-b1a7-416e-ac2e-75c2a00f1cc4.png"
+      alt="" 
+    /> -->
+        <div class="overlay" id="overlay">
+            <div class="modal" id="modal">
+                <h1>ATENCIÓN</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatum consequatur minima at architecto aliquid similique id deserunt laborum consectetur
+                    recusandae repellendus autem, distinctio officiis veniam tenetur quod! Porro, quibusdam!
+                </p>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse vel provident tenetur modi numquam similique officiis facere aliquam quisquam maiores ad itaque
+                    eum ex, repudiandae repellendus, reiciendis autem, porro exercitationem.
+                </p>
+                <div class="modal-buttons">
+                    <button class="btn success" id="btn-yes">Si, Acepto</button>
+                    <button class="btn danger" id="btn-no">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            const $openModal = document.getElementById('open-modal');
+            const $btnYes = document.getElementById('btn-yes');
+            const $btnNo = document.getElementById('btn-no');
+            const $modal = document.getElementById('modal');
+            const $overlay = document.getElementById('overlay');
+
+            function openModal() {
+                $modal.style.animation = 'animationIn .8s forwards';
+                $overlay.classList.add('active');
+            }
+            function closeModal() {
+                $modal.style.animation = 'animationOut .8s forwards';
+                $overlay.classList.remove('active');
+            }
+            $openModal.addEventListener('click', (event) => {
+                openModal();
+            });
+            $btnYes.addEventListener('click', (event) => {
+                closeModal();
+            });
+            $btnNo.addEventListener('click', (event) => {
+                closeModal();
+            });
+        </script>
+    </body>
+</html>
